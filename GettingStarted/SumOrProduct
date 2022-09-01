@@ -1,0 +1,23 @@
+public class Solution {
+    static long sum(int n)
+    {
+        long sum=(n*(n+1))/2;
+         return (long)(sum);
+    }
+    static long prod(int n)
+    {    long prod=1;
+        for(long i=1;i<=n;i++)
+        {
+          prod=(prod*i)%1000000007;  
+        }
+     return prod;
+    }
+	public static long sumOrProduct(int n, int q) 
+    {
+        if(q==1)
+        {return  sum(n);}
+        else
+        {return  prod(n);}
+     }
+}
+        
