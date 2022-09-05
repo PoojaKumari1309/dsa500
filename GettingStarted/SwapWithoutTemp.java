@@ -1,13 +1,14 @@
-public class Solution {
-	public static long evenSumTillN(int n) {
-        long sum=0;
-		for(int i=0;i<=n;i++)
-        {
-            if(i%2==0)
-            {
-                sum=sum+i;
-            }
-        }
-        return sum;
-	}
+//User function Template for Java
+
+class Solution{
+    static List<Integer> get(int a,int b)
+    {
+        a =a+b;
+        b=a-b;
+        a=a-b;
+        List<Integer>list=new ArrayList<>();
+        list.add(a);
+        list.add(b);
+        return list;
+    }
 }
