@@ -1,0 +1,30 @@
+ public int[] topKFrequent(int[] nums, int k) {
+        int min=-100000;
+        int max=100000;
+        int[]freq=new int[max-min+1];
+        for(int i=0;i<nums.length;i++)
+        {
+            freq[nums[i]-min]++;
+        }
+        ArrayList<Integer>[]bucket=new ArrayList[nums.length+1];
+        for(int i=0;i<bucket.length;i++)
+        {
+            bucket[i]=new ArrayList<>();
+        }
+        int  idx=0;
+        int[]res=new int[k];
+        for(int actual=0;actual<freq.length;actual++)
+        {
+           int  val=actual+min;
+            bucket[freq[actual]].add(val);
+        }
+        for(int j=bucket.length-1;j>0;j--)
+        {   for(int b=0;b<bucket[j].size();b++)
+         {
+            res[idx++]=bucket[j].get(b);
+            if(idx==k)return res;
+         } 
+        }
+        return res; 
+    }
+}
