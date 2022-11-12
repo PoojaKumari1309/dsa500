@@ -1,0 +1,50 @@
+public int firstoccurence(int[]nums,int target)
+    {
+        int left=0;
+        int right=nums.length-1;
+        while(left<=right)
+        {
+          int mid=left+(right-left)/2;
+          if(nums[mid]>=target)
+          {
+             
+              right=mid-1;
+          } 
+          else
+          {
+             left=mid+1;
+          }
+        }
+        return left;
+    }
+    public int lastoccurence(int[]nums,int target)
+    {
+        int left=0;
+        int right=nums.length-1;
+        while(left<=right)
+        {
+            int mid=left+(right-left)/2;
+            if(nums[mid]>target)
+            {
+              right=mid-1;  
+            }
+            else
+            {
+                
+                left=mid+1;
+            }
+        }
+        return right;
+    }
+    public int[] searchRange(int[] nums, int target) {
+        int FirstIndex=firstoccurence(nums,target);
+        int LastIndex=lastoccurence(nums,target);
+       
+        if(FirstIndex >LastIndex)
+          { 
+              return new int[]{-1,-1};
+          }
+        
+        return new int[]{FirstIndex,LastIndex};
+    }
+}
