@@ -13,7 +13,18 @@ class Solution {
           curr=curr.next;
         return curr;
     }
+    public ListNode Hare(ListNode head)
+    {
+         ListNode slow=head,fast=head;
+        while(fast!=null && fast.next!=null)
+        {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
     public ListNode middleNode(ListNode head) {
-        return TwoPointer(head);
+        //return TwoPointer(head);
+        return Hare(head);
     }
 }
